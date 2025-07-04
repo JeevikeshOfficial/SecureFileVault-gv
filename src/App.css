@@ -1,0 +1,299 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #dadadf;
+}
+
+.app {
+  max-width: 100%;
+  padding: 16px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .app {
+    max-width: 90%;
+    padding: 24px;
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.header button {
+  align-self: flex-start;
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header h1 {
+    margin-bottom: 0;
+  }
+}
+
+/* Sections */
+.upload-section, .files-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 16px;
+}
+
+/* Buttons */
+button {
+  background-color: #4285f4;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 999px; /* Fully rounded buttons */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3367d6;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.refresh-button {
+  margin-bottom: 15px;
+}
+
+/* File Upload */
+.file-input-container {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+#file-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.custom-file-input {
+  border: 2px dashed #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.custom-file-input:hover {
+  border-color: #4285f4;
+}
+
+.custom-file-input svg {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #4285f4;
+}
+
+.file-name-display {
+  background-color: #f1f3f4;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+
+/* Progress Bar */
+.progress-bar {
+  background-color: #f1f3f4;
+  border-radius: 4px;
+  height: 20px;
+  margin: 15px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  background-color: #4285f4;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-bar span {
+  color: #000;
+  font-size: 12px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* File List */
+.file-list {
+  list-style: none;
+}
+
+.file-item {
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 12px;
+}
+
+.file-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.file-name {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  margin-bottom: 5px;
+  word-break: break-all;
+}
+
+.file-size {
+  color: #666;
+  font-size: 13px;
+}
+
+.file-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.file-actions button {
+  margin: 5px;
+  border-radius: 999px; /* Make action buttons rounded too */
+}
+
+.file-actions button:nth-child(2) {
+  background-color: #ea4335;
+}
+
+.file-actions button:nth-child(2):hover {
+  background-color: #d33426;
+}
+
+@media (min-width: 600px) {
+  .file-item {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .file-info {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0;
+    text-align: left;
+    width: 60%;
+  }
+
+  .file-name {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+
+  .file-actions {
+    justify-content: flex-end;
+    width: auto;
+  }
+}
+
+/* Loading State */
+.loading-spinner {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #4285f4;
+  height: 40px;
+  width: 40px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.empty-state {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.empty-state svg {
+  color: #cccccc;
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.empty-state p {
+  color: #666;
+}
+.pill-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 999px;
+  background-color: #4285f4;
+  color: #000000;
+}
