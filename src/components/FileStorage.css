@@ -1,0 +1,19 @@
+.file-input-container.drag-over {
+  background-color: #e8f0fe;
+  border: 2px dashed #0066cc;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hide the default file input button */
+.file-input-container input[type="file"] {
+  display: none;
+}
+
+/* Optional: Style the container to indicate it's a drop zone */
+.file-input-container {
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}
