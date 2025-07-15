@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchAuthSession } from "@aws-amplify/auth";
+import { fetchAuthSession, signOut } from "@aws-amplify/auth";
 import { uploadData, getUrl, remove, list } from "aws-amplify/storage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,6 +27,54 @@ function FileStorage() {
   const [uploadingAdmin, setUploadingAdmin] = useState(false);
   const [isPublicDragOver, setIsPublicDragOver] = useState(false);
   const [isAdminDragOver, setIsAdminDragOver] = useState(false);
+
+  // Handle automatic sign-out on tab close and inactivity
+  useEffect(() => {
+    // Sign out when browser tab is closed
+    const handleTabClose = async () => {
+      try {
+        await signOut({ global: true }); // Global sign-out to clear all sessions
+      } catch (error) {
+        console.error("Error signing out on tab close:", error);
+      }
+    };
+
+    // Inactivity timeout (15 minutes = 900000 ms)
+    let inactivityTimeout;
+    const resetInactivityTimeout = () => {
+      clearTimeout(inactivityTimeout);
+      inactivityTimeout = setTimeout(async () => {
+        try {
+          await signOut({ global: true }); // Global sign-out
+          window.location.href = "/"; // Redirect to home or login page
+        } catch (error) {
+          console.error("Error signing out due to inactivity:", error);
+        }
+      }, 900000); // 15 minutes
+    };
+
+    // Reset timeout on user activity
+    const handleUserActivity = () => {
+      resetInactivityTimeout();
+    };
+
+    // Set up event listeners for user activity
+    const events = ['mousemove', 'keydown', 'click', 'scroll', 'touchstart'];
+    events.forEach(event => window.addEventListener(event, handleUserActivity));
+
+    // Set up beforeunload event for tab closure
+    window.addEventListener('beforeunload', handleTabClose);
+
+    // Start the initial timeout
+    resetInactivityTimeout();
+
+    // Cleanup event listeners and timeout
+    return () => {
+      events.forEach(event => window.removeEventListener(event, handleUserActivity));
+      window.removeEventListener('beforeunload', handleTabClose);
+      clearTimeout(inactivityTimeout);
+    };
+  }, []);
 
   // Fetch user session to get Cognito username and group
   useEffect(() => {
@@ -115,8 +163,12 @@ function FileStorage() {
       });
       setUploading(false);
       setSelectedFile(null);
-      document.getElementById(`file-input`).value = "";
-      fetchFiles(directory, directory === "public/" ? setPublicFiles : setAdminFiles, setLoadingPublic);
+      document.getElementById(directory === "public/" ? "public-file-input" : "admin-file-input").value = "";
+      fetchFiles(
+        directory,
+        directory === "public/" ? setPublicFiles : setAdminFiles,
+        directory === "public/" ? setLoadingPublic : setLoadingAdmin
+      );
     } catch (error) {
       console.error(`Error uploading file to ${directory}:`, error);
       setUploading(false);
@@ -166,11 +218,11 @@ function FileStorage() {
       <h2>Upload Files to {directory === "public/" ? "Public" : "Admin"} Directory</h2>
       <div className="file-input-container">
         <input
-          id="file-input"
+          id={directory === "public/" ? "public-file-input" : "admin-file-input"}
           type="file"
           onChange={(e) => handleFileSelect(e, setSelectedFile)}
         />
-        <label htmlFor="file-input" className="custom-file-input">
+        <label htmlFor={directory === "public/" ? "public-file-input" : "admin-file-input"} className="custom-file-input">
           <FontAwesomeIcon icon={faCloudUploadAlt} />
           <span>Choose a file or drag & drop here</span>
         </label>
