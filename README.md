@@ -12,7 +12,8 @@
 
 **Viewer Page:**
 
-<img width="1919" height="1079" alt="Screenshot 2025-07-12 105637" src="https://github.com/user-attachments/assets/e41b52d6-1b39-4ddd-aa70-03f52254986a" />
+<img width="1171" height="572" alt="image" src="https://github.com/user-attachments/assets/37746eb9-8554-49ef-9b73-5ce82b720834" />
+
 
 
 
