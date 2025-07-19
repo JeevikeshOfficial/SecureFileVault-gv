@@ -1,15 +1,17 @@
 **Login Page:**
 
-<img width="627" height="552" alt="image" src="https://github.com/user-attachments/assets/c76a7caf-5c15-40ea-80a0-242f5f7bba47" />
+<img width="1110" height="638" alt="image" src="https://github.com/user-attachments/assets/eeda6e4d-31ac-4f10-ac46-c8943605ea11" />
 
 
 **Admin Page:**
 
 <img width="1898" height="1079" alt="Screenshot 2025-07-12 105234" src="https://github.com/user-attachments/assets/5a106b15-7ee9-454d-8e3a-ad81a0ec76b4" />
 
+
 **Editor Page:**
 
 <img width="1900" height="1079" alt="Screenshot 2025-07-12 105459" src="https://github.com/user-attachments/assets/a92c7ef0-84e2-46f5-a988-cf76b156359c" />
+
 
 **Viewer Page:**
 
