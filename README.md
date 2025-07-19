@@ -1,3 +1,20 @@
+
+
+<img width="1410" height="686" alt="Screenshot 2025-07-12 104954" src="https://github.com/user-attachments/assets/0cb400bc-bf82-489c-9c3b-5e5fbf446a76" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Secure File Vault
 A cloud-based secure file sharing portal built with AWS services to demonstrate advanced cloud security practices. This project implements a robust, user-friendly system for securely uploading, downloading, and managing sensitive files with fine-grained access controls, encryption, and audit logging. It aligns with 2025 hiring demands for cloud security engineers by showcasing practical, real-world security solutions, including anomaly detection and automated email notifications.
 Project Overview
