@@ -1,6 +1,7 @@
 **Login Page:**
 
-<img width="1410" height="686" alt="Screenshot 2025-07-12 104954" src="https://github.com/user-attachments/assets/0cb400bc-bf82-489c-9c3b-5e5fbf446a76" />
+<img width="627" height="552" alt="image" src="https://github.com/user-attachments/assets/c76a7caf-5c15-40ea-80a0-242f5f7bba47" />
+
 
 **Admin Page:**
 
