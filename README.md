@@ -164,4 +164,4 @@ Integrate SNS with additional notification channels (e.g., Slack, SMS).
 This project demonstrates proficiency in cloud security best practices, including encryption, least privilege, authentication, auditability, and proactive anomaly detection. The integration of CloudWatch for anomaly detection and SNS for email notifications showcases advanced security monitoring skills, making this a standout portfolio piece for cloud security roles in 2025.
 
 **Contact**
-For questions or collaboration, reach out via [jeevikesh.official@gmail.com] or GitHub Issues.
+For questions or collaboration, reach out via linkedIn (https://www.linkedin.com/in/Jeevikesh-Srinivasan/) or GitHub Issues.
